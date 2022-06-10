@@ -9,46 +9,6 @@ public class AddressBook {
     //taking scanner class for input from the user
     private static Scanner scanner = new Scanner(System.in);
 
-    //DISPLAYING WELCOME MESSAGE
-    public static void main(String[] args) {
-        System.out.println("WELOCOME TO ADRESS BOOK SYSTEM ");
-        //   Contact contact = addContact();
-        //   System.out.println(contact);
-        //   Contact contact1 = editContact(contact);
-        //   System.out.println(contact1);
-        System.out.println("Enter valid option [1.Enter or 2.Exit] ");
-        int enterExit = scanner.nextInt();
-        if (enterExit == 1) {
-            while (enterExit != 2) {
-                System.out.println("Choose The operation to perform from below list");
-                System.out.println("1.to add contact");
-                System.out.println("2.to edit contact");
-                System.out.println("3.to delete contact");
-                System.out.println("4.to exit");
-
-                System.out.println("ENTER THE VALUE OF YOUR CHOICE");
-                int userChoice = scanner.nextInt();
-
-                switch (userChoice) {
-                    case 1:
-
-                        break;
-                    case 2:
-
-                        break;
-                    case 3:
-
-                        break;
-                    default:
-                        System.out.println("Enter valid choice from the list");
-                }
-                if (userChoice == 4) {
-                    System.out.println("Successfully exited");
-                }
-
-            }
-        }
-    }
 
     public void addContact() {
         System.out.println("Enter the First Name :- ");
@@ -142,5 +102,13 @@ public class AddressBook {
 
     }
 
+    //ability to add multiple persons
+    public void multiplePersons() {
+        System.out.println("Enter the number of contacts to be created");
+        int userWant = scanner.nextInt();
+        for (int i = 0; i < userWant; i++) {
+            addContact();
+        }
+    }
 
 }

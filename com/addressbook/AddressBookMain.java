@@ -16,7 +16,8 @@ public class AddressBookMain {
                 System.out.println("1.to add contact");
                 System.out.println("2.to edit contact");
                 System.out.println("3.to delete contact");
-                System.out.println("4.to exit");
+                System.out.println("4.to add multiple persons");
+                System.out.println("5.to exit");
 
                 System.out.println("ENTER THE VALUE OF YOUR CHOICE");
                 int userChoice = scanner.nextInt();
@@ -31,10 +32,12 @@ public class AddressBookMain {
                     case 3:
                         object.deleteContact();
                         break;
+                    case 4:
+                        object.multiplePersons();
                     default:
                         System.out.println("Enter valid choice from the list");
                 }
-                if (userChoice == 4) {
+                if (userChoice == 5) {
                     System.out.println("Successfully exited");
                     break;
                 }
