@@ -1,7 +1,7 @@
 package com.addressbook;
 
 public class Contact {
-    private String fullName;
+    private String firstName;
     private String lastName;
     private String address;
     private String city;
@@ -10,8 +10,8 @@ public class Contact {
     private long mobileNumber;
     private String email;
 
-    public Contact(String fullName, String lastName, String address, String city, String state, int zip, long mobileNumber, String email) {
-        this.fullName = fullName;
+    public Contact(String firstName, String lastName, String address, String city, String state, int zip, long mobileNumber, String email) {
+        this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
         this.city = city;
@@ -21,12 +21,12 @@ public class Contact {
         this.email = email;
     }
 
-    public String getFullName() {
-        return fullName;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
     public String getLastName() {
@@ -88,7 +88,7 @@ public class Contact {
     @Override
     public String toString() {
         return "Contact{" +
-                "fullName='" + fullName + '\'' +
+                "fullName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", address='" + address + '\'' +
                 ", city='" + city + '\'' +

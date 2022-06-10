@@ -4,18 +4,19 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class AddressBook {
-    //DISPLAYING WELCOME MESSAGE
-    public static void main(String[] args) {
-        System.out.println("WELOCOME TO ADRESS BOOK SYSTEM ");
-        Contact contact=addContact();
-        System.out.println(contact);
-    }
-
+    //initialisiging array list
+    static ArrayList<Contact> contacts = new ArrayList<Contact>();
     //taking scanner class for input from the user
     private static Scanner scanner = new Scanner(System.in);
 
-    //initialisigin array list
-    static ArrayList<Contact> contacts = new ArrayList<Contact>();
+    //DISPLAYING WELCOME MESSAGE
+    public static void main(String[] args) {
+        System.out.println("WELOCOME TO ADRESS BOOK SYSTEM ");
+        Contact contact = addContact();
+        System.out.println(contact);
+        Contact contact1 = editContact(contact);
+        System.out.println(contact1);
+    }
 
     private static Contact addContact() {
         System.out.println("Enter the First Name :- ");
@@ -34,7 +35,7 @@ public class AddressBook {
         String state = scanner.next();
 
         System.out.println("Enter the Zip Code :- ");
-        int zip= scanner.nextInt();
+        int zip = scanner.nextInt();
 
         System.out.println("Enter the Phone Number :- ");
         long phoneNumber = scanner.nextLong();
@@ -42,7 +43,7 @@ public class AddressBook {
         System.out.println("Enter the Email :- ");
         String email = scanner.next();
 
-        Contact contact=new Contact(firstName,lastName,address,city,state,zip,phoneNumber,email);
+        Contact contact = new Contact(firstName, lastName, address, city, state, zip, phoneNumber, email);
         contacts.add(contact);
 
         System.out.println("Contact Added Successfully");
@@ -50,5 +51,39 @@ public class AddressBook {
 
     }
 
+    //edit existing contact
+    private static Contact editContact(Contact contact) {
+        System.out.println("Enter the First Name to edit ");
+        String firstName = scanner.next();
+        for (Contact person : contacts) {
+            if (firstName.equals(person.getFirstName())) {
+                System.out.println("Enter the New First Name :- ");
+                String newFirstName = scanner.next();
 
+                System.out.println("Enter the New Last Name :- ");
+                String newLastName = scanner.next();
+
+                System.out.println("Enter the New Address :- ");
+                String newAddress = scanner.next();
+
+                System.out.println("Enter the New City :- ");
+                String newCity = scanner.next();
+
+                System.out.println("Enter the New State :- ");
+                String newState = scanner.next();
+
+                System.out.println("Enter the New Zip Code :- ");
+                int newZip = scanner.nextInt();
+
+                System.out.println("Enter the New Phone Number :- ");
+                long newPhoneNumber = scanner.nextLong();
+
+                System.out.println("Enter the New Email :- ");
+                String newEmail = scanner.next();
+            }
+        }
+        return contact;
     }
+
+
+}
