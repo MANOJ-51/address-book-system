@@ -80,6 +80,11 @@ public class AddressBook {
 
                 System.out.println("Enter the New Email :- ");
                 String newEmail = scanner.next();
+
+                Contact contact1 = new Contact(newFirstName, newLastName, newAddress, newCity, newState, newZip, newPhoneNumber, newEmail);
+                contacts.add(contact1);
+
+                System.out.println("Contact edited Successfully");
             }
         }
         return contact;
