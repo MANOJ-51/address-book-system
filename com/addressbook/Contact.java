@@ -1,14 +1,14 @@
 package com.addressbook;
 
 public class Contact {
-    private String firstName;
-    private String lastName;
-    private String address;
-    private String city;
-    private String state;
-    private int zip;
-    private long mobileNumber;
-    private String email;
+    String firstName;
+    String lastName;
+    String address;
+    String city;
+    String state;
+    int zip;
+    long mobileNumber;
+    String email;
 
     public Contact(String firstName, String lastName, String address, String city, String state, int zip, long mobileNumber, String email) {
         this.firstName = firstName;
@@ -88,7 +88,7 @@ public class Contact {
     @Override
     public String toString() {
         return "Contact{" +
-                "fullName='" + firstName + '\'' +
+                "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", address='" + address + '\'' +
                 ", city='" + city + '\'' +
