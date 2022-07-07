@@ -1,7 +1,6 @@
 package com.addressbook;
 
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
 
 public class AddressBook {
     //initialising array list
@@ -198,7 +197,7 @@ public class AddressBook {
     }
 
     //uc8 ability to find persons of same city
-    public void searchCity() {
+    public void searchPersonsBYCity() {
         System.out.println("Enter the name of the city you want to find the persons");
         String enterSearchCity = scanner.next();
 
@@ -212,7 +211,7 @@ public class AddressBook {
     }
 
     //uc8 ability to find persons of same state
-    public void searchState() {
+    public void searchPersonsByState() {
         System.out.println("Enter the name of the state you want to find the persons");
         String searchState = scanner.next();
 
@@ -222,6 +221,50 @@ public class AddressBook {
                     System.out.println("Persons who Live in same state are" + person.getFirstName());
                 }
             }
+        }
+    }
+
+    //UC9 view persons by city using dictionary and collections library
+    public void viewContactsInCity() {
+        System.out.println("Enter the name of the city to view persons ");
+        String enterCityToSearch = scanner.next();
+
+        //creating dictionary with hashtable
+        Dictionary cityWiseDictionary = new Hashtable();
+
+        for (AddressBookList addressBookList : addressBookLists) {
+            for (Contact person : addressBookList.contacts) {
+                if (enterCityToSearch.equals(person.getCity())) {
+                    cityWiseDictionary.put(person, enterCityToSearch);
+                }
+            }
+        }
+        System.out.println("Persons who are in the " + enterCityToSearch + " are : ");
+        //using enumeration method to print the dictionary
+        for (Enumeration enumeration = cityWiseDictionary.keys(); enumeration.hasMoreElements(); ) {
+            System.out.println(enumeration.nextElement());
+        }
+    }
+
+    //UC9 ability to view persons by state using dictionary and collections library
+    public void viewContactsInState() {
+        System.out.println("Enter the name of the state to view persons ");
+        String enterStateToSearch = scanner.next();
+
+        //creating dictionary with hash table
+        Dictionary stateWiseDictionary = new Hashtable();
+
+        for (AddressBookList addressBookList : addressBookLists) {
+            for (Contact person : addressBookList.contacts) {
+                if (enterStateToSearch.equals(person.getState())) {
+                    stateWiseDictionary.put(person, enterStateToSearch);
+                }
+            }
+        }
+        System.out.println("Persons who are in the " + enterStateToSearch + " are :");
+        //using enumeration method to view persons in dictionary
+        for (Enumeration enumeration = stateWiseDictionary.keys(); enumeration.hasMoreElements(); ) {
+            System.out.println(enumeration.nextElement());
         }
     }
 }
