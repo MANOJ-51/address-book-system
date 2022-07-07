@@ -44,12 +44,30 @@ public class AddressBook {
 
             Contact contact = new Contact(firstName, lastName, address, city, state, zip, phoneNumber, email);
             //using streams and lambda functions
-            addressBookLists.stream().filter(find -> find.addressBookName.contains(enterAddressBookNameToAddContact))
-                    .forEach(addressBookList -> addressBookList.contacts.add(contact));
-
-            System.out.println("Contact Added Successfully");
+            if (duplicateCheckOfSamePersonInSameAddressBook(enterAddressBookNameToAddContact, firstName)) {
+                addressBookLists.stream()
+                        .filter(find -> find.addressBookName.contains(enterAddressBookNameToAddContact))
+                        .forEach(addressBookList -> addressBookList.contacts.add(contact));
+                System.out.println("Contact Added Successfully");
+            } else {
+                System.out.println("This Person is already in your Contact List");
+            }
         }
 
+    }
+
+    //uc7 ability to check duplicate of same person in same adders book
+    public boolean duplicateCheckOfSamePersonInSameAddressBook(String newAddressBookName, String firstName) {
+        for (AddressBookList addressBookList : addressBookLists) {
+            if (newAddressBookName.equals(addressBookList.getAddressBookName())) {
+                for (Contact person : addressBookList.contacts) {
+                    if (firstName.equals(person.getFirstName())) {
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
     }
 
     //edit existing contact
