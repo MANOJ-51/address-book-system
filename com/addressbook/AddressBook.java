@@ -267,4 +267,34 @@ public class AddressBook {
             System.out.println(enumeration.nextElement());
         }
     }
+
+    //uc10 ability to get count of number of contacts in city
+    public void numberOfContactsInCity() {
+        System.out.println("Enter the name of the city to view number of contacts you have in that city");
+        String enterCityToCount = scanner.next();
+        int count = 0;
+        for (AddressBookList addressBookList : addressBookLists) {
+            for (Contact person : addressBookList.contacts) {
+                if (enterCityToCount.equals(person.getCity())) {
+                    count++;
+                }
+            }
+        }
+        System.out.println("Total number of contacts in the city are :" + count);
+    }
+
+    //uc10 ability to get number of contacts in the state
+    public void numberOfContactsInState() {
+        System.out.println("Enter the state to get number of contacts in it");
+        String enterStateToCount = scanner.next();
+        int count = 0;
+        for (AddressBookList addressBookList : addressBookLists) {
+            for (Contact person : addressBookList.contacts) {
+                if (enterStateToCount.equals(person.getState())) {
+                    count++;
+                }
+            }
+        }
+        System.out.println("Total number of contacts are :" + count);
+    }
 }

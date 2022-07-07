@@ -25,7 +25,9 @@ public class AddressBookMain {
                 System.out.println("7.to search persons in same state ");
                 System.out.println("8.to view contacts in city  ");
                 System.out.println("9.to View contacts in state ");
-                System.out.println("10.to exit ");
+                System.out.println("10.to view count of total contacts in city ");
+                System.out.println("11.to view count of total contacts in state ");
+                System.out.println("12.to exit ");
 
                 System.out.println("ENTER THE VALUE OF YOUR CHOICE");
                 int userChoice = scanner.nextInt();
@@ -58,10 +60,16 @@ public class AddressBookMain {
                     case 9:
                         object.viewContactsInState();
                         break;
+                    case 10:
+                        object.numberOfContactsInCity();
+                        break;
+                    case 11:
+                        object.numberOfContactsInState();
+                        break;
                     default:
                         System.out.println("Enter valid choice from the list");
                 }
-                if (userChoice == 10) {
+                if (userChoice == 12) {
                     System.out.println("Successfully exited");
                     break;
                 }
