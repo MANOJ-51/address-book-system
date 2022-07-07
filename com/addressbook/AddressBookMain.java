@@ -21,7 +21,10 @@ public class AddressBookMain {
                 System.out.println("3.to edit contact");
                 System.out.println("4.to delete contact");
                 System.out.println("5.to display address book ");
-                System.out.println("6.to exit ");
+                System.out.println("6.to search persons in same city ");
+                System.out.println("7.to search persons in same state ");
+                System.out.println("8.to exit ");
+
                 System.out.println("ENTER THE VALUE OF YOUR CHOICE");
                 int userChoice = scanner.nextInt();
 
@@ -40,10 +43,17 @@ public class AddressBookMain {
                         break;
                     case 5:
                         object.displayAddressBook();
+                        break;
+                    case 6:
+                        object.searchCity();
+                        break;
+                    case 7:
+                        object.searchState();
+                        break;
                     default:
                         System.out.println("Enter valid choice from the list");
                 }
-                if (userChoice == 6) {
+                if (userChoice == 8) {
                     System.out.println("Successfully exited");
                     break;
                 }

@@ -196,4 +196,32 @@ public class AddressBook {
             System.out.println(addressBook);
         }
     }
+
+    //uc8 ability to find persons of same city
+    public void searchCity() {
+        System.out.println("Enter the name of the city you want to find the persons");
+        String enterSearchCity = scanner.next();
+
+        for (AddressBookList addressBookList : addressBookLists) {
+            for (Contact person : addressBookList.contacts) {
+                if (enterSearchCity.equals(person.getCity())) {
+                    System.out.println("Persons who live same in city " + person.getFirstName());
+                }
+            }
+        }
+    }
+
+    //uc8 ability to find persons of same state
+    public void searchState() {
+        System.out.println("Enter the name of the state you want to find the persons");
+        String searchState = scanner.next();
+
+        for (AddressBookList addressBookList : addressBookLists) {
+            for (Contact person : addressBookList.contacts) {
+                if (searchState.equals(person.getState())) {
+                    System.out.println("Persons who Live in same state are" + person.getFirstName());
+                }
+            }
+        }
+    }
 }
