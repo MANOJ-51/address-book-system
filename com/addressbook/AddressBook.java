@@ -297,4 +297,22 @@ public class AddressBook {
         }
         System.out.println("Total number of contacts are :" + count);
     }
+
+    //uc11 sort by person names alphabetically
+    public void sortByName() {
+        if (addressBookLists.isEmpty()) {
+            System.out.println("Create an address book first ");
+        } else {
+            System.out.println("Enter the name of the address book to sort by names");
+            String enterBookNameToSort = scanner.next();
+
+            for (AddressBookList addressBookList : addressBookLists) {
+                if (enterBookNameToSort.equals(addressBookList.addressBookName)) {
+                    addressBookList.contacts.stream()
+                            .sorted((contact1, contact2) -> contact1.getFirstName().compareTo(contact2.getFirstName()))
+                            .forEach(contact -> System.out.println(contact));
+                }
+            }
+        }
+    }
 }

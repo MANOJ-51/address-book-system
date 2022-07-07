@@ -27,7 +27,8 @@ public class AddressBookMain {
                 System.out.println("9.to View contacts in state ");
                 System.out.println("10.to view count of total contacts in city ");
                 System.out.println("11.to view count of total contacts in state ");
-                System.out.println("12.to exit ");
+                System.out.println("12.to view sorted contacts by name ");
+                System.out.println("13.to exit  ");
 
                 System.out.println("ENTER THE VALUE OF YOUR CHOICE");
                 int userChoice = scanner.nextInt();
@@ -66,10 +67,13 @@ public class AddressBookMain {
                     case 11:
                         object.numberOfContactsInState();
                         break;
+                    case 12:
+                        object.sortByName();
+                        break;
                     default:
                         System.out.println("Enter valid choice from the list");
                 }
-                if (userChoice == 12) {
+                if (userChoice == 13) {
                     System.out.println("Successfully exited");
                     break;
                 }
