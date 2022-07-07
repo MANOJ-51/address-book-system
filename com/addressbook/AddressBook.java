@@ -204,7 +204,7 @@ public class AddressBook {
         for (AddressBookList addressBookList : addressBookLists) {
             for (Contact person : addressBookList.contacts) {
                 if (enterSearchCity.equals(person.getCity())) {
-                    System.out.println("Persons who live same in city " + person.getFirstName());
+                    System.out.println("Persons who live same in city : " + person.getFirstName());
                 }
             }
         }
@@ -218,7 +218,7 @@ public class AddressBook {
         for (AddressBookList addressBookList : addressBookLists) {
             for (Contact person : addressBookList.contacts) {
                 if (searchState.equals(person.getState())) {
-                    System.out.println("Persons who Live in same state are" + person.getFirstName());
+                    System.out.println("Persons who Live in same state are : " + person.getFirstName());
                 }
             }
         }
@@ -226,7 +226,7 @@ public class AddressBook {
 
     //UC9 view persons by city using dictionary and collections library
     public void viewContactsInCity() {
-        System.out.println("Enter the name of the city to view persons ");
+        System.out.println("Enter the name of the city to view Contacts ");
         String enterCityToSearch = scanner.next();
 
         //creating dictionary with hashtable
@@ -248,7 +248,7 @@ public class AddressBook {
 
     //UC9 ability to view persons by state using dictionary and collections library
     public void viewContactsInState() {
-        System.out.println("Enter the name of the state to view persons ");
+        System.out.println("Enter the name of the state to view contacts ");
         String enterStateToSearch = scanner.next();
 
         //creating dictionary with hash table
@@ -299,18 +299,47 @@ public class AddressBook {
     }
 
     //uc11 sort by person names alphabetically
-    public void sortByName() {
+    public void sortByNameCityStateZip() {
         if (addressBookLists.isEmpty()) {
             System.out.println("Create an address book first ");
         } else {
-            System.out.println("Enter the name of the address book to sort by names");
+            System.out.println("Enter the name of the address book to sort by name city state zip");
             String enterBookNameToSort = scanner.next();
 
             for (AddressBookList addressBookList : addressBookLists) {
                 if (enterBookNameToSort.equals(addressBookList.addressBookName)) {
-                    addressBookList.contacts.stream()
-                            .sorted((contact1, contact2) -> contact1.getFirstName().compareTo(contact2.getFirstName()))
-                            .forEach(contact -> System.out.println(contact));
+
+                    System.out.println("Please select any of the below options");
+                    System.out.println("1.to sort by name");
+                    System.out.println("2.to sort by city");
+                    System.out.println("3.to sort by State");
+                    System.out.println("4.to sort by zip");
+
+                    int usersSortingChoice = scanner.nextInt();
+                    switch (usersSortingChoice) {
+                        case 1:
+                            addressBookList.contacts.stream()
+                                    .sorted((contact1, contact2) -> contact1.getFirstName().compareTo(contact2.getFirstName()))
+                                    .forEach(contact -> System.out.println(contact));
+                            break;
+                        case 2:
+                            addressBookList.contacts.stream()
+                                    .sorted((contact1, contact2) -> contact1.getCity().compareTo(contact2.getCity()))
+                                    .forEach(contact -> System.out.println(contact));
+                            break;
+                        case 3:
+                            addressBookList.contacts.stream()
+                                    .sorted((contact1, contact2) -> contact1.getState().compareTo(contact2.getState()))
+                                    .forEach(contact -> System.out.println(contact));
+                            break;
+                        case 4:
+                            addressBookList.contacts.stream()
+                                    .sorted((contact1, contact2) -> Integer.valueOf(contact1.getZip()).compareTo(contact2.getZip()))
+                                    .forEach(contact -> System.out.println(contact));
+                            break;
+                        default:
+                            System.out.println("please choose valid option");
+                    }
                 }
             }
         }

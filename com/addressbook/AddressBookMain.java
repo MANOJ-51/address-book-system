@@ -27,7 +27,7 @@ public class AddressBookMain {
                 System.out.println("9.to View contacts in state ");
                 System.out.println("10.to view count of total contacts in city ");
                 System.out.println("11.to view count of total contacts in state ");
-                System.out.println("12.to view sorted contacts by name ");
+                System.out.println("12.to view sorted contacts by name city state zip ");
                 System.out.println("13.to exit  ");
 
                 System.out.println("ENTER THE VALUE OF YOUR CHOICE");
@@ -68,7 +68,7 @@ public class AddressBookMain {
                         object.numberOfContactsInState();
                         break;
                     case 12:
-                        object.sortByName();
+                        object.sortByNameCityStateZip();
                         break;
                     default:
                         System.out.println("Enter valid choice from the list");
