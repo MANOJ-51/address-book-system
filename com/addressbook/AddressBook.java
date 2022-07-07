@@ -298,7 +298,7 @@ public class AddressBook {
         System.out.println("Total number of contacts are :" + count);
     }
 
-    //uc11 sort by person names alphabetically
+    //uc11,12 sort by person names alphabetically
     public void sortByNameCityStateZip() {
         if (addressBookLists.isEmpty()) {
             System.out.println("Create an address book first ");
