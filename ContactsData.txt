@@ -1,0 +1,1 @@
+[AddressBookList{addressBookName='book1', contacts=[Contact{firstName='manoj', lastName='pabbisetty', address='gandhiroad', city='ongole', state='ap', zip=523001, mobileNumber=7013167294, email='manojemail'}]}]

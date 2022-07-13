@@ -1,14 +1,16 @@
-package com.addressbook;
+package com.bridgelabz;
 
 import java.util.Scanner;
 
 public class AddressBookMain {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         //main method
         System.out.println("WELCOME TO ADDRESS BOOK SYSTEM ");
 
         Scanner scanner = new Scanner(System.in);
         AddressBook object = new AddressBook();
+        //creating object of file operations
+        FileOperations fileOperations = new FileOperations();
 
         System.out.println("Enter valid option [1.Enter or 2.Exit] ");
         int enterExit = scanner.nextInt();
@@ -28,7 +30,9 @@ public class AddressBookMain {
                 System.out.println("10.to view count of total contacts in city ");
                 System.out.println("11.to view count of total contacts in state ");
                 System.out.println("12.to view sorted contacts by name city state zip ");
-                System.out.println("13.to exit  ");
+                System.out.println("13.to write contacts into the text file  ");
+                System.out.println("14.to read contacts from the text file  ");
+                System.out.println("15.to exit  ");
 
                 System.out.println("ENTER THE VALUE OF YOUR CHOICE");
                 int userChoice = scanner.nextInt();
@@ -70,10 +74,16 @@ public class AddressBookMain {
                     case 12:
                         object.sortByNameCityStateZip();
                         break;
+                    case 13:
+                        fileOperations.writeContactsIntoTextFile();
+                        break;
+                    case 14:
+                        fileOperations.readContactsFromTheTextFile();
+                        break;
                     default:
                         System.out.println("Enter valid choice from the list");
                 }
-                if (userChoice == 13) {
+                if (userChoice == 15) {
                     System.out.println("Successfully exited");
                     break;
                 }
